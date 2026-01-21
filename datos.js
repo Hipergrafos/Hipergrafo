@@ -1,3 +1,4 @@
+// datos.js
 // Datos de hipergrafos (corregidos y expandidos para mejor representación)
 const hipergrafos = {
     H1: {

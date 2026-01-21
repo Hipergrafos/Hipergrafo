@@ -44,49 +44,44 @@ header p {
 main {
     flex: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     padding: 20px;
     gap: 20px;
 }
 
 #panel {
-    background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
-    padding: 25px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
-    width: 100%;
-    max-width: 300px;
-    border: 1px solid #38bdf8;
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 10px;
+    width: 220px;
+    flex-shrink: 0;
 }
 
 #panel h2 {
     margin-bottom: 15px;
     color: #38bdf8;
-    font-size: 1.5em;
+    font-size: 1.4em;
     text-align: center;
 }
 
 #selector {
-    width: 100%;
-    padding: 12px;
-    font-size: 1em;
-    border: 2px solid #38bdf8;
-    border-radius: 8px;
-    background: #020617;
-    color: #e5e7eb;
+    list-style: none;
+    padding: 0;
+}
+
+#selector li {
+    font-size: 1em; /* Más pequeño que el título (1.4em) */
+    color: #cbd5e1; /* Color base */
     cursor: pointer;
-    transition: all 0.3s ease;
+    margin-bottom: 10px;
+    transition: color 0.3s ease; /* Solo transición de color */
 }
 
-#selector:hover {
-    border-color: #22d3ee;
-    box-shadow: 0 0 10px #22d3ee;
+#selector li:hover {
+    /* Sin cambios en hover */
 }
 
-#selector:focus {
-    outline: none;
-    box-shadow: 0 0 15px #22d3ee;
+#selector li.selected {
+    color: #38bdf8; /* Cambia solo el color al seleccionar */
 }
 
 #visualizacion {
@@ -94,8 +89,7 @@ main {
     border-radius: 15px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
     padding: 20px;
-    width: 100%;
-    max-width: 950px;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -133,11 +127,12 @@ footer p {
         font-size: 2.5em;
     }
     main {
+        flex-direction: column;
         padding: 10px;
         gap: 15px;
     }
     #panel {
-        max-width: 100%;
+        width: 100%;
     }
     #canvas {
         width: 100%;

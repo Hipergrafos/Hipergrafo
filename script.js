@@ -1,22 +1,34 @@
+// script.js
 const svg = d3.select("#canvas");
 const selector = document.getElementById("selector");
 const descripcion = document.getElementById("descripcion");
 
-// Poblar el selector
+// Poblar el selector como lista
 Object.keys(hipergrafos).forEach(id => {
-    const option = document.createElement("option");
-    option.value = id;
-    option.textContent = hipergrafos[id].nombre;
-    selector.appendChild(option);
+    const li = document.createElement("li");
+    li.textContent = hipergrafos[id].nombre;
+    li.dataset.id = id;
+    selector.appendChild(li);
 });
 
-// Evento de cambio
-selector.addEventListener("change", () => {
-    dibujarHipergrafo(hipergrafos[selector.value]);
+// Evento de clic en la lista
+selector.addEventListener("click", (e) => {
+    if (e.target.tagName === "LI") {
+        // Remover clase selected de todos
+        document.querySelectorAll("#selector li").forEach(li => li.classList.remove("selected"));
+        // Agregar clase selected al clicado
+        e.target.classList.add("selected");
+        // Dibujar el hipergrafo
+        dibujarHipergrafo(hipergrafos[e.target.dataset.id]);
+    }
 });
 
 // Dibujar el primero por defecto
-dibujarHipergrafo(hipergrafos[Object.keys(hipergrafos)[0]]);
+const firstLi = selector.querySelector("li");
+if (firstLi) {
+    firstLi.classList.add("selected");
+    dibujarHipergrafo(hipergrafos[firstLi.dataset.id]);
+}
 
 function dibujarHipergrafo(hipergrafo) {
     svg.selectAll("*").remove();

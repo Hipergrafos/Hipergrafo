@@ -1,0 +1,21 @@
+{
+  "id": "H_COLAB_01",
+  "descripcion": "Hipergrafo de colaboración académica entre investigadores y proyectos",
+  "nodos": [
+    "Investigador_A",
+    "Investigador_B",
+    "Investigador_C",
+    "Investigador_D",
+    "Investigador_E",
+    "Proyecto_X",
+    "Proyecto_Y",
+    "Proyecto_Z"
+  ],
+  "hiperaristas": [
+    { "id": "E1", "tipo": "colaboracion", "nodos": ["Investigador_A", "Investigador_B", "Proyecto_X"] },
+    { "id": "E2", "tipo": "colaboracion", "nodos": ["Investigador_B", "Investigador_C", "Investigador_D", "Proyecto_Y"] },
+    { "id": "E3", "tipo": "colaboracion", "nodos": ["Investigador_A", "Investigador_C", "Proyecto_X", "Proyecto_Z"] },
+    { "id": "E4", "tipo": "colaboracion", "nodos": ["Investigador_D", "Investigador_E", "Proyecto_Z"] },
+    { "id": "E5", "tipo": "financiamiento", "nodos": ["Proyecto_X", "Proyecto_Y", "Proyecto_Z"] }
+  ]
+}
