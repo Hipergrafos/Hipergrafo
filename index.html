@@ -1,6 +1,45 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repositorio de Hipergrafos</title>
+    <meta name="description" content="Visualización interactiva y llamativa de hipergrafos para proyectos académicos.">
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="estilos.css">
+
+    <!-- D3.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
 <body>
-  <h1>GitHub Pages funciona</h1>
+    <header>
+        <h1>Repositorio de Hipergrafos</h1>
+        <p>Visualización interactiva y llamativa de hipergrafos</p>
+    </header>
+
+    <main>
+        <section id="panel" aria-labelledby="panel-title">
+            <h2 id="panel-title">Seleccionar Hipergrafo</h2>
+            <select id="selector" aria-label="Selecciona un hipergrafo para visualizar">
+                <!-- Opciones se cargarán dinámicamente con JavaScript -->
+            </select>
+        </section>
+
+        <section id="visualizacion" aria-labelledby="viz-title">
+            <h2 id="viz-title" class="sr-only">Visualización del Hipergrafo</h2>
+            <svg id="canvas" width="900" height="500" role="img" aria-describedby="canvas-desc"></svg>
+            <div id="canvas-desc" class="sr-only">Gráfico interactivo que muestra la estructura del hipergrafo seleccionado con nodos y hiperaristas.</div>
+            <p id="descripcion">Selecciona un hipergrafo para ver su visualización.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Proyecto académico – Hipergrafos | Desarrollado con D3.js | Tema inspirado en el cosmos</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="datos.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
