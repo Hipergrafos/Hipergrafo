@@ -1,0 +1,37 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #0f172a;
+    color: #e5e7eb;
+}
+
+header {
+    background-color: #020617;
+    padding: 20px;
+    text-align: center;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+#panel {
+    width: 200px;
+}
+
+#visualizacion {
+    flex: 1;
+    background-color: #020617;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+svg {
+    background-color: #020617;
+}
+
+circle {
+    cursor: pointer;
+}
