@@ -1,45 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Repositorio de Hipergrafos</title>
-    <meta name="description" content="Visualización interactiva y llamativa de hipergrafos para proyectos académicos.">
-
-    <!-- Estilos -->
-    <link rel="stylesheet" href="estilos.css">
-
-    <!-- D3.js -->
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>Repositorio de Hipergrafos</title>
+  <link rel="stylesheet" href="estilos.css" />
+  <script src="https://d3js.org/d3.v7.min.js"></script>
 </head>
 <body>
-    <header>
-        <h1>Repositorio de Hipergrafos</h1>
-        <p>Visualización interactiva y llamativa de hipergrafos</p>
-    </header>
+  <header>
+    <h1>Repositorio interactivo de Hipergrafos</h1>
+    <p>Visualiza hipergrafos almacenados en el repositorio</p>
+  </header>
 
-    <main>
-        <aside id="panel" aria-labelledby="panel-title">
-            <h2 id="panel-title">Seleccionar Hipergrafo</h2>
-            <ul id="selector" aria-label="Selecciona un hipergrafo para visualizar">
-                <!-- Opciones se cargarán dinámicamente con JavaScript -->
-            </ul>
-        </aside>
+  <main>
+    <!-- Pestañas para alternar entre vistas -->
+    <div class="tabs">
+      <button class="tab-button active"onclick="showTab('visualizar', event)">Visualizar Guardados</button>
 
-        <section id="visualizacion" aria-labelledby="viz-title">
-            <h2 id="viz-title" class="sr-only">Visualización del Hipergrafo</h2>
-            <svg id="canvas" width="900" height="500" role="img" aria-describedby="canvas-desc"></svg>
-            <div id="canvas-desc" class="sr-only">Gráfico interactivo que muestra la estructura del hipergrafo seleccionado con nodos y hiperaristas.</div>
-            <p id="descripcion">Selecciona un hipergrafo para ver su visualización.</p>
-        </section>
-    </main>
+        <button class="tab-button"onclick="showTab('subir', event)"> Subir Nuevo Hipergrafo </button>
+    </div>
 
-    <footer>
-        <p>Proyecto académico – Hipergrafos | Desarrollado con D3.js | Tema inspirado en el cosmos</p>
-    </footer>
+    <!-- Contenido de la pestaña "Visualizar Guardados" -->
+    <div id="visualizar" class="tab-content active">
+      <section id="lista-guardados-section">
+        <h3>Hipergrafos Guardados</h3>
+        <ul id="lista-guardados">
+          <!-- Los hipergrafos guardados se cargarán aquí dinámicamente -->
+        </ul>
+      </section>
 
-    <!-- Scripts -->
-   
-    <script src="script.js"></script>
+      <section id="canvas">
+        <!-- Aquí irá la visualización con D3 -->
+        <p class="placeholder">Selecciona un hipergrafo para visualizar</p>
+      </section>
+
+      <section id="descripcion">
+        <h2>Descripción</h2>
+        <p id="info">Selecciona un hipergrafo para ver su información</p>
+      </section>
+    </div>
+
+    <!-- Contenido de la pestaña "Subir Nuevo" -->
+    <div id="subir" class="tab-content">
+      <section id="panel">
+        <h3>Cargar y Guardar Hipergrafo</h3>
+        <input type="file" id="importar" accept="application/json" />
+        <p class="hint">Selecciona un archivo JSON de hipergrafo</p>
+        <label for="descripcion-input">Descripción:</label>
+        <textarea id="descripcion-input" rows="4" cols="50" placeholder="Ingresa una descripción para el hipergrafo"></textarea>
+        <button id="guardar-btn">Guardar Hipergrafo</button>
+        <p id="mensaje-guardar"></p>
+      </section>
+
+      <!-- Vista previa -->
+      <section id="canvas-preview">
+        <h3>Vista Previa</h3>
+        <div id="preview-svg"></div>
+        <p class="placeholder" id="preview-placeholder">Carga un JSON para ver la vista previa</p>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
 </body>
 </html>
